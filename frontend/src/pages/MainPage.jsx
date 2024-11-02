@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/MainPage.css'
 import Video from '../components/Video'
 import MainPageTexts from '../components/HappyTexts'
-import url from '../assets/happyVideo (1).mp4'
+import url from '../assets/new.mp4'
 function MainPage({userEmotion}) {
 
   if(userEmotion.toLowerCase() === 'happy') {
@@ -26,14 +26,14 @@ function MainPage({userEmotion}) {
         <MainPageTexts text1={"moody text 1"} text2={"moody text 2"} text3={"moody text 3"} text4={"moody text 4"} text5={"moody text 5"} text6={"moody text 6" } text7={"moody text 7"} status={"Moody"}  />
       </>
     );
-  }else if (userEmotion.toLowerCase() === 'Neutral') {
+  }else if (userEmotion.toLowerCase() === 'neutral') {
     return (
       <>
         <Video url={url}/> 
         <MainPageTexts text1={"Neutral text 1"} text2={"Neutral text 2"} text3={"Neutral text 3"} text4={"Neutral text 4"} text5={"Neutral text 5"} text6={"Neutral text 6" } text7={"Neutral text 7"} status={"Neutral"}  />
       </>
     );
-  }else if (userEmotion.toLowerCase() === 'Angry') {
+  }else if (userEmotion.toLowerCase() === 'angry') {
     return (
       <>
         <Video url={url}/> 
