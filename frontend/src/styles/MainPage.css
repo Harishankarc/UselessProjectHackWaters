@@ -1,0 +1,71 @@
+.happyTexts{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.section1,.section2,.section3{
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.section3{
+    margin-bottom: 50px;
+}
+.section1{
+    flex: 0.1;
+}
+.section1 h1{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.semicircle{
+    width: 10rem;  
+    height: 10rem; 
+    background-color: yellow; 
+    border-radius: 50%; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+}
+.message p{
+    padding: 5px;
+}
+.message{
+    width: 20rem;
+    height: 11rem;
+    padding: 10px;
+    background-color: #424242;
+    color: white;
+    border-radius: 10px;
+    overflow: scroll;
+}
+.message::-webkit-scrollbar{
+    display: none;
+}
+.messageInput{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20rem;
+    background-color: #424242;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+.messageInput input{
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    background-color: #424242;
+    outline: none;
+    border:none;
+    color: white;
+}

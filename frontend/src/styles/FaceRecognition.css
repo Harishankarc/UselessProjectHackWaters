@@ -1,0 +1,12 @@
+.video-container{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.border-container{
+    border: 2px solid gray;
+    border-radius: 20px;
+    overflow: hidden;
+}
