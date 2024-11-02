@@ -1,12 +1,9 @@
 import React, { useState,useEffect, useRef } from 'react'
 import { EmotionDetector} from '@iad-os/emotion-detector'
 import '../styles/FaceRecognition.css'
-export default function FaceRecognition() {
+export default function FaceRecognition({setUserEmotion}) {
     const [emotion, setEmotion] = useState(null)
-    const myref = useRef(null)
     let currentEmotion;
-    let container;
-    let switchOption;
   
     useEffect(()=>{
       if(emotion === null){
@@ -15,22 +12,14 @@ export default function FaceRecognition() {
         currentEmotion = emotion.reduce((max, current) => {
           return current.percentage > max.percentage ? current : max;
         });
-        switchOption = currentEmotion.emotion.toLowerCase()
         console.log(currentEmotion.emotion)
-        container = document.getElementsByClassName('.video-container')
-        if(myref.current){
-          if(switchOption === "happy"){
-            myref.current.style.backgroundColor = "green"
-          }else{
-            myref.current.style.backgroundColor = "white"
-          }
-        }
+        setUserEmotion(currentEmotion.emotion)
       }
     },[emotion])
 
     return (
         <>
-            <div className="video-container" ref={myref}>
+            <div className="video-container">
             <div className="border-container">
                 <EmotionDetector 
                     onEmotionDetect={(Detection)=>{
@@ -42,6 +31,7 @@ export default function FaceRecognition() {
                     detectSex={false}  
                     emotionDetectPeriod={100}
                     showLabel={false}
+                    camSizeRatio={1}
                 />
             </div>
         </div>
