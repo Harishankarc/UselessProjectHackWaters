@@ -6,9 +6,14 @@ import { MdSend } from "react-icons/md";
 import FaceRecognition from './FaceRecognition';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import { useRef } from 'react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 
 function MainPageTexts({text1,text2,text3,text4,text5,text6,text7,status}) {
+    const scrollref= useRef(null);
     const [messages,setMessages] = useState(["Hello"])
     const [newMessage, setNewMessage] = useState("");
 
@@ -37,18 +42,36 @@ function MainPageTexts({text1,text2,text3,text4,text5,text6,text7,status}) {
 
         gsap.to('.message',{
             opacity:1,
-            delay:2,
+            scale:1.5,
+            delay:3,
             duration:2,
+            ease:'power2.in'
         })
         
         gsap.to('.messageInput',{
+            y:100,
             opacity:1,
-            delay:5,
+            scale:1.5,
+            delay:4,
+            ease:'power2.in',
+
             duration:2,
         })
         
-
-    },[])
+        gsap.to('.text2',{
+            opacity:1,
+            scale:5,
+            x:150,
+            y:150,
+            scrollTrigger:{
+                trigger:text2,
+                start:'bottom bottom',
+                scrub:true,
+                end:'top 1%'
+            }
+        }
+        )
+    },{scope:scrollref})
   return (
 
     <div className="happyTexts">
@@ -57,7 +80,7 @@ function MainPageTexts({text1,text2,text3,text4,text5,text6,text7,status}) {
             <div className="semicircle opacity-0">
                 {status}
             </div>
-            <h1>{text2}</h1>
+            <h1 className='text2 opacity-0'>{text2}</h1>
         </div>
         <div className="section2">
             <h1>{text7}</h1>
